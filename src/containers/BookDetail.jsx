@@ -8,7 +8,10 @@ class BookDetail extends Component {
     return (
       <div>
         {activeBook &&
-          <h2>{activeBook.title}</h2>
+        <div>
+          <h3>Title: {activeBook.title}</h3>
+          <p>Pages: {activeBook.pages}</p>
+        </div>
         }
       </div>
     );
@@ -16,7 +19,6 @@ class BookDetail extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log('_____ BookDetails ___ mapStateToProps: ', state);
   return {
     book: state.activeBook.activeBook,
   };
