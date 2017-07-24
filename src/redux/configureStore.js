@@ -11,7 +11,7 @@ export const configureStore = () => {
     composeEnhancers(
       applyMiddleware(
         loggingMiddleware,
-      )
+      ),
     ),
   );
 

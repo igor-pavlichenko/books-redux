@@ -11,7 +11,12 @@ class BookList extends Component {
     console.log('this.props: ', this.props);
     return this.props.books.map((book) => {
       return (
-        <li className="list-group-item" key={book.title}>{book.title}</li>
+        <li
+        className="list-group-item"
+        key={book.title}
+        onClick={() => this.props.selectBook(book)}>
+          {book.title}
+        </li>
       );
     });
   }
@@ -26,7 +31,15 @@ class BookList extends Component {
   }
 }
 
+/**
+ * Whatever is returned from this function will end up as this.props
+ * inside BookList
+ *
+ * @param {any} state
+ * @returns
+ */
 function mapStateToProps(state) {
+  console.log('state: ', state);
   return {
     books: state.books.books,
   };
@@ -46,6 +59,6 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(
-  mapDispatchToProps,
   mapStateToProps,
+  mapDispatchToProps,
 )(BookList);
